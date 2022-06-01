@@ -1,3 +1,5 @@
+# Test here: https://ubiquitous-cucurucho-4332ad.netlify.app/
+
 # This is part of our HCI class project
 ## Converts the ugly KUNIV schedule into a prettier version
 
