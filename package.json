@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@tailwindcss/line-clamp": "^0.3.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
@@ -10,9 +11,16 @@
     "@types/node": "^16.11.26",
     "@types/react": "^17.0.44",
     "@types/react-dom": "^17.0.15",
+    "axios": "^0.26.1",
+    "html-table-to-json": "^1.0.0",
+    "mhtml2html": "^3.0.0",
     "react": "^18.0.0",
+    "react-dark-mode-toggle": "^0.2.0",
     "react-dom": "^18.0.0",
+    "react-dropzone": "^14.2.1",
+    "react-modal-slideshow": "^1.0.5",
     "react-scripts": "5.0.0",
+    "tailwindcss-neumorphism": "^0.1.0",
     "typescript": "^4.6.3",
     "web-vitals": "^2.1.4"
   },
@@ -39,5 +47,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.4",
+    "postcss": "^8.4.12",
+    "tailwindcss": "^3.0.23"
   }
 }
