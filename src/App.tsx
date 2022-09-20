@@ -6,6 +6,8 @@ import './App.css';
 import {allfromcombinations, alltocombinations} from './tailwindcolorcombinations';
 import Dropzone from 'react-dropzone'
 import DarkModeToggle from "react-dark-mode-toggle";
+import html2canvas from 'html2canvas';
+import downloadjs from 'downloadjs';
 
 
   function getFile(newfile?: any) {
@@ -22,6 +24,13 @@ import DarkModeToggle from "react-dark-mode-toggle";
   function tableToJSON(table: string) {
     const HtmlTableToJson = require('html-table-to-json');
     return HtmlTableToJson.parse('<table>' + table + '</table>');
+  }
+
+  const CaptureButton = () => {
+    const table = document.getElementById('tab');
+    html2canvas(table ? table : document.body).then(canvas => 
+      downloadjs(canvas.toDataURL("image/png"), 'download.png', 'image/png')
+    ) 
   }
 
   const useFetch = (url: string) : any => {
@@ -109,7 +118,7 @@ function App() {
           
 
         
-      <div className={`${isDarkMode? 'nm-concave-slate-800':'nm-concave-slate-300 '}  transition ease-in-out rounded-[0.9rem]`}>
+      <div id="tab" className={`${isDarkMode? 'nm-concave-slate-800':'nm-concave-slate-300 '}  transition ease-in-out rounded-[0.9rem]`}>
 
         <div className={`px-5 m-5 text-4xl ${isDarkMode? 'text-slate-200': 'text-slate-800'}`}>{coursename}</div>
 
@@ -132,6 +141,7 @@ function App() {
           onChange={(e) => showFile(e.target!.files![0])}
         /> */}
 
+        <button onClick={() => CaptureButton()}>Capture Schedule</button>
 <div className='m-20'>
 <button className={`text-xl ${isDarkMode? 'text-slate-200': 'text-slate-800'}`} onClick={() => setShowRaw(!showRaw)}>Show/Hide raw schedule</button>
 {showRaw && <table className = {`table-auto items-center text-base ${isDarkMode? 'text-slate-200': 'text-slate-800'}`} dangerouslySetInnerHTML={{__html: file}}></table>}
